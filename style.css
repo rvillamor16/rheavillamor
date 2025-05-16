@@ -1,0 +1,36 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.main {
+    background: #c77393;
+    background: radial-gradient(circle, rgba(199, 115, 147, 1) 0%, rgba(167, 97, 124, 1) 11%, rgba(108, 65, 82, 1) 25%, rgba(15, 14, 16, 1) 60%);
+}
+
+.grotesque-font {
+    font-family: "Darker Grotesque", sans-serif;
+}
+
+.lostar-font {
+    font-family: 'Lostar', sans-serif;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
