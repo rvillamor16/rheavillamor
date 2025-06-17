@@ -27,7 +27,7 @@
 
         <!-- Left: Image -->
         <div class="w-full md:w-1/2 flex justify-center mb-10 md:mb-0">
-            <img src="assets/IMG_6707 noBG.png" alt="Rhea Villamor" class="max-h-screen object-cover" />
+            <img src="assets/P1.png" alt="Rhea Villamor" class="max-h-screen object-cover" />
         </div>
 
         <!-- Right: Text Content -->
@@ -131,7 +131,7 @@
 
     <!-- Sample Images Section -->
     <section class="bg-[#2a2a2a]">
-        <div class=" max-w-7xl mx-auto px-6 py-16 text-center space-y-10 h-screen">
+        <div class=" max-w-7xl mx-auto px-6 py-16 text-center space-y-10 h-auto">
             <h2 class="text-4xl font-bold tracking-wider lostar-font text-[#f5f1f0]"><span
                     class="text-[#FFC0CB]">graph</span>ics</h2>
             <div id="imagesContainer" class="flex flex-wrap justify-center gap-6">
@@ -235,52 +235,74 @@
 
     <script>
         const projects = [
-            { title: "Make It Right - Lyric Video", type: "video", src: "assets/Make It Right.mp4" },
-            { title: "Power - Lyric Video", type: "video", src: "assets/Power.mp4" },
-            { title: "Event Teaser", type: "video", src: "videos/teaser.mp4" },
-            { title: "Short Travel Vlog", type: "video", src: "videos/logo.mp4" },
+            {
+                title: "Video Invitation",
+                type: "video",
+                embedLink: "https://drive.google.com/file/d/1la3pTpeV_cyDnm5Q_roolkpIGjG71aAZ/preview"
+            },
+            {
+                title: "Instagram Reel",
+                type: "video",
+                embedLink: "https://drive.google.com/file/d/1JHNwKA5l4WK4I0g43oYbB8uc7xig5YhH/preview"
+            },
+            {
+                title: "Lyric Video",
+                type: "video",
+                embedLink: "https://drive.google.com/file/d/1GqUH6YOqMpgOI49rV9UN1gm8fqlY1zD6/preview"
+            },
+            {
+                title: "Shorts",
+                type: "video",
+                embedLink: "https://drive.google.com/file/d/1HTZlamwC7XccWPRB68uguaOBLuCl0DUC/preview"
+            },
+            {
+                title: "Compilation Video",
+                type: "video",
+                embedLink: "https://drive.google.com/file/d/1KEGoHzbsjuQscgen6r3Z7QLwnV86vHYs/preview"
+            },
+            {
+                title: "Instructional Video",
+                type: "video",
+                embedLink: "https://drive.google.com/file/d/1EfR5nKjn05w_uivmghlx1kPgaPrMauJ-/preview"
+            },
             { title: "Poster Design", type: "image", src: "assets/poster.jpg" },
             { title: "Social Media Graphic", type: "image", src: "assets/socmed.jpg" },
             { title: "Digital Drawing", type: "image", src: "assets/art.jpg" },
-            { title: "Poster Design", type: "image", src: "assets/poster2.jpg" },
-
+            { title: "Poster Design", type: "image", src: "assets/poster2.jpg" }
         ];
 
         const videosContainer = document.getElementById("videosContainer");
         const imagesContainer = document.getElementById("imagesContainer");
 
-        let videoCount = 0;
         projects.forEach(project => {
             const card = document.createElement("div");
             card.className = "bg-[#2a2a2a] bg-opacity-10 backdrop-blur-lg rounded-lg overflow-hidden shadow-lg flex-shrink-0 w-64 h-full flex flex-col justify-between";
 
             if (project.type === "video") {
                 card.innerHTML = `
-            <video 
-                controls 
-                controlsList="nodownload"
-                oncontextmenu="return false"
-                class="w-full h-[92%] object-cover rounded-t-lg">
-                <source src="${project.src}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <div class="p-2 text-center bg-black bg-opacity-20 w-full">
-                <h3 class="text-sm font-semibold text-white">${project.title}</h3>
-            </div>
-        `;
+                    <iframe
+                        src="${project.embedLink}"
+                        allow="autoplay"
+                        allowfullscreen
+                        frameborder="0"
+                        class="w-full h-[98%] rounded-t-lg"
+                    ></iframe>
+                    <div class="p-2 text-center bg-black bg-opacity-20 w-full">
+                        <h3 class="text-sm font-semibold text-white"></h3>
+                    </div>
+                `;
                 videosContainer.appendChild(card);
-                videoCount++;
             } else if (project.type === "image") {
                 card.innerHTML = `
-            <img 
-                src="${project.src}" 
-                alt="${project.title}" 
-                oncontextmenu="return false"
-                class="w-64 h-64 object-contain max-h-96 select-none pointer-events-none mx-auto border bg-[#808080]">
-            <div class="p-2 text-center bg-[#0F0E10]">
-                <h3 class="text-sm font-semibold">${project.title}</h3>
-            </div>
-        `;
+                    <img 
+                        src="${project.src}" 
+                        alt="${project.title}" 
+                        oncontextmenu="return false"
+                        class="w-64 h-64 object-contain max-h-96 select-none pointer-events-none mx-auto border bg-[#808080]">
+                    <div class="p-2 text-center bg-[#0F0E10]">
+                        <h3 class="text-sm font-semibold">${project.title}</h3>
+                    </div>
+                `;
                 imagesContainer.appendChild(card);
             }
         });
